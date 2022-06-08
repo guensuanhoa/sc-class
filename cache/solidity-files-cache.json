@@ -1,9 +1,9 @@
 {
   "_format": "hh-sol-cache-2",
   "files": {
-    "D:\\learn\\sc-class\\contracts\\HelloWorld.sol": {
-      "lastModificationDate": 1654678650142,
-      "contentHash": "a29aeb4a63b1b93e752b343f3c9dc89b",
+    "/Users/hoanguyen/sc-class/contracts/HelloWorld.sol": {
+      "lastModificationDate": 1654726949925,
+      "contentHash": "b0305e64e62b8dbe588a9d56cd6a1125",
       "sourceName": "contracts/HelloWorld.sol",
       "solcConfig": {
         "version": "0.8.4",
