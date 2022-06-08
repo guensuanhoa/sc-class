@@ -1,4 +1,4 @@
-﻿# Allow a dummy project in this directory for testing purposes
+# Allow a dummy project in this directory for testing purposes
 myproject
 
 /node_modules
@@ -96,3 +96,4 @@ typings/
 
 
 docs/.env.example
+.env
