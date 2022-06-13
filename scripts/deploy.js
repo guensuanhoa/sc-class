@@ -13,6 +13,7 @@ async function main() {
   // manually to make sure everything is compiled
   // await hre.run('compile');
 
+  const message = "Hello World !!!!"
   // We get the contract to deploy
   const HelloWorld = await hre.ethers.getContractFactory("HelloWorld");
   const helloWorld = await HelloWorld.deploy(message)
