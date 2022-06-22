@@ -7,20 +7,20 @@ import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 //  the staking contract to take the amount to interest their profit
 
 contract StakingReserve is Ownable {
-    IERC20 public mainToken;
+    IERC20 public gold;
     address public stakeAddress;
 
-    constructor(address _mainToken, address _stakeAddress) {
-        mainToken = IERC20(_mainToken);
+    constructor(address _goldAdress, address _stakeAddress) {
+        gold = IERC20(_goldAdress);
         stakeAddress = _stakeAddress;
     }
 
     function getBalanceOfReserve() public view returns (uint256) {
-        return mainToken.balanceOf(address(this));
+        return gold.balanceOf(address(this));
     }
 
-    function distributeGold(address _recipient, uint256 _amount) public {
+    function distributeGold(address _recipientAddress, uint256 _amount) public {
         require(msg.sender == stakeAddress);
-        mainToken.transfer(_recipient, _amount);
+        gold.transfer(_recipientAddress, _amount);
     }
 }
