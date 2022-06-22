@@ -10,6 +10,7 @@ contract Staking is Ownable {
     using Counters for Counters.Counter;
     StakingReserve public immutable reserve;
     IERC20 public immutable gold;
+    // Emit when user puts more money into his stake pakage
     event StakeUpdate(
         address account,
         uint256 packageId,
@@ -22,11 +23,12 @@ contract Staking is Ownable {
         uint256 amount,
         uint256 totalProfit
     );
+
     struct StakePackage {
-        uint256 rate;
+        uint256 rate; // % profit per year
         uint256 decimal;
-        uint256 minStaking;
-        uint256 lockTime;
+        uint256 minStaking; // min staking value
+        uint256 lockTime; // lock time before user can unstake
         bool isOffline;
     }
     struct StakingInfo {
@@ -35,8 +37,11 @@ contract Staking is Ownable {
         uint256 amount;
         uint256 totalProfit;
     }
+    // Counting stake pakage number
     Counters.Counter private _stakePackageCount;
+    // Store stake pakages of this contract
     mapping(uint256 => StakePackage) public stakePackages;
+    // Store stakes of an address
     mapping(address => mapping(uint256 => StakingInfo)) public stakes;
 
     /**
@@ -59,14 +64,39 @@ contract Staking is Ownable {
         uint256 decimal_,
         uint256 minStaking_,
         uint256 lockTime_
-    ) public onlyOwner {}
+    ) public onlyOwner {
+        require(rate_ > 0, "Staking: rate_ must be lagger than 0");
+        require(minStaking_ > 0, "Staking: minStaking_ must be lagger than 0");
+        require(lockTime_ > 0, "Staking: lockTime_ must be lagger than 0");
+
+        // Increate number of stake pakage of this contract
+        _stakePackageCount.increment();
+        // Add new stake pakage to current pakageId
+        uint256 pakageId_ = _stakePackageCount.current();
+        stakePackages[pakageId_] = StakePackage(
+            rate_,
+            decimal_,
+            minStaking_,
+            lockTime_,
+            false
+        );
+    }
 
     /**
      * @dev Remove an stake package
      * @notice A stake package with packageId will be set to offline
      * so none of new staker can stake to an offine stake package
      */
-    function removeStakePackage(uint256 packageId_) public onlyOwner {}
+    function removeStakePackage(uint256 packageId_) public onlyOwner {
+        // Verify input param
+        require(packageId_ > 0, "Staking: packageId_ must be lagger than 0");
+        // Verify packageId_
+        StakePackage storage stakePakage_ = stakePackages[packageId_];
+        require(stakePakage_.rate > 0, "Staking: packageId_ is not exits");
+        require(stakePakage_.isOffline == false, "Staking: packageId_ had been removed");
+        // Update stake pakage
+        stakePakage_.isOffline = true;
+    }
 
     /**
      * @dev User stake amount of gold to stakes[address][packageId]
@@ -75,6 +105,27 @@ contract Staking is Ownable {
      * otherwise just add completely new stake. 
      */
     function stake(uint256 amount_, uint256 packageId_) external {
+        // Verify input param
+        require(amount_ > 0, "Staking: amount_ must be lagger than 0");
+        require(packageId_ > 0, "Staking: packageId_ must be lagger than 0");
+        // Verify packageId_
+        StakePackage storage stakePakage_ = stakePackages[packageId_];
+        require(stakePakage_.rate > 0, "Staking: packageId_ is not exits");
+        require(stakePakage_.isOffline == false, "Staking: packageId_ had been removed");
+        require(amount_ > stakePakage_.minStaking, "Staking: amount_ must be lagger than minStaking");
+
+        // Transfer gold token from sender to reserve contract
+        gold.transferFrom(_msgSender(), address(reserve), amount_);
+        // Init new stake for sender address 
+        // OR update current user's stake
+        StakingInfo storage _stakingInfo = stakes[_msgSender()][packageId_];
+        // User had stake before
+        if (_stakingInfo.amount > 0) {
+            // Update current stake
+            
+        } else {
+            // Init new stake
+        }
     }
     /**
      * @dev Take out all the stake amount and profit of account's stake from reserve contract
