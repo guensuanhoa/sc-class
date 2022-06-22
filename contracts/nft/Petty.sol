@@ -26,4 +26,8 @@ contract Petty is ERC721, Ownable {
     function updateBaseTokenURI(string memory baseTokenURI_) public onlyOwner {
         _baseTokenURI = baseTokenURI_;
     }
+    
+    function getBaseTokenURI() public view returns (string memory) {
+        return _baseURI();
+    }
 }

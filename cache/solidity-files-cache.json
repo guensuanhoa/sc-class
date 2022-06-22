@@ -1,44 +1,9 @@
 {
   "_format": "hh-sol-cache-2",
   "files": {
-    "/Users/hoanguyen/sc-class/contracts/HelloWorld.sol": {
-      "lastModificationDate": 1654726949925,
-      "contentHash": "b0305e64e62b8dbe588a9d56cd6a1125",
-      "sourceName": "contracts/HelloWorld.sol",
-      "solcConfig": {
-        "version": "0.8.4",
-        "settings": {
-          "optimizer": {
-            "enabled": false,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [],
-      "versionPragmas": [
-        "^0.8.4"
-      ],
-      "artifacts": [
-        "HelloWorld"
-      ]
-    },
-    "/Users/hoanguyen/sc-class/contracts/gold/Gold.sol": {
-      "lastModificationDate": 1654904370548,
-      "contentHash": "49f6adfaac6014ec7debd382ea2efb16",
+    "D:\\learn\\sc-class\\contracts\\gold\\Gold.sol": {
+      "lastModificationDate": 1655255902900,
+      "contentHash": "03b6fe1b88ae7cb504000daea12c7592",
       "sourceName": "contracts/gold/Gold.sol",
       "solcConfig": {
         "version": "0.8.4",
@@ -75,8 +40,8 @@
         "Gold"
       ]
     },
-    "/Users/hoanguyen/sc-class/node_modules/@openzeppelin/contracts/token/ERC20/ERC20.sol": {
-      "lastModificationDate": 1654726232607,
+    "D:\\learn\\sc-class\\node_modules\\@openzeppelin\\contracts\\token\\ERC20\\ERC20.sol": {
+      "lastModificationDate": 1654672373549,
       "contentHash": "a9d2146925da52142435d3bb8df53c3c",
       "sourceName": "@openzeppelin/contracts/token/ERC20/ERC20.sol",
       "solcConfig": {
@@ -114,8 +79,8 @@
         "ERC20"
       ]
     },
-    "/Users/hoanguyen/sc-class/node_modules/@openzeppelin/contracts/security/Pausable.sol": {
-      "lastModificationDate": 1654726233457,
+    "D:\\learn\\sc-class\\node_modules\\@openzeppelin\\contracts\\security\\Pausable.sol": {
+      "lastModificationDate": 1654672373676,
       "contentHash": "9c2dccab8e3a43a18c41e358763fe4d8",
       "sourceName": "@openzeppelin/contracts/security/Pausable.sol",
       "solcConfig": {
@@ -151,8 +116,8 @@
         "Pausable"
       ]
     },
-    "/Users/hoanguyen/sc-class/node_modules/@openzeppelin/contracts/access/AccessControl.sol": {
-      "lastModificationDate": 1654726230222,
+    "D:\\learn\\sc-class\\node_modules\\@openzeppelin\\contracts\\access\\AccessControl.sol": {
+      "lastModificationDate": 1654672373441,
       "contentHash": "08101487003fda67e21e6d2cfe35bb2e",
       "sourceName": "@openzeppelin/contracts/access/AccessControl.sol",
       "solcConfig": {
@@ -191,8 +156,8 @@
         "AccessControl"
       ]
     },
-    "/Users/hoanguyen/sc-class/node_modules/@openzeppelin/contracts/token/ERC20/IERC20.sol": {
-      "lastModificationDate": 1654726233260,
+    "D:\\learn\\sc-class\\node_modules\\@openzeppelin\\contracts\\token\\ERC20\\IERC20.sol": {
+      "lastModificationDate": 1654672373635,
       "contentHash": "ad7c2d0af148c8f9f097d65deeb4da6b",
       "sourceName": "@openzeppelin/contracts/token/ERC20/IERC20.sol",
       "solcConfig": {
@@ -226,8 +191,8 @@
         "IERC20"
       ]
     },
-    "/Users/hoanguyen/sc-class/node_modules/@openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol": {
-      "lastModificationDate": 1654726233284,
+    "D:\\learn\\sc-class\\node_modules\\@openzeppelin\\contracts\\token\\ERC20\\extensions\\IERC20Metadata.sol": {
+      "lastModificationDate": 1654672373636,
       "contentHash": "909ab67fc5c25033fe6cd364f8c056f9",
       "sourceName": "@openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol",
       "solcConfig": {
@@ -263,8 +228,8 @@
         "IERC20Metadata"
       ]
     },
-    "/Users/hoanguyen/sc-class/node_modules/@openzeppelin/contracts/utils/Context.sol": {
-      "lastModificationDate": 1654726231400,
+    "D:\\learn\\sc-class\\node_modules\\@openzeppelin\\contracts\\utils\\Context.sol": {
+      "lastModificationDate": 1654672373454,
       "contentHash": "5f2c5c4b6af2dd4551027144797bc8be",
       "sourceName": "@openzeppelin/contracts/utils/Context.sol",
       "solcConfig": {
@@ -298,8 +263,8 @@
         "Context"
       ]
     },
-    "/Users/hoanguyen/sc-class/node_modules/@openzeppelin/contracts/access/IAccessControl.sol": {
-      "lastModificationDate": 1654726232984,
+    "D:\\learn\\sc-class\\node_modules\\@openzeppelin\\contracts\\access\\IAccessControl.sol": {
+      "lastModificationDate": 1654672373604,
       "contentHash": "57c84298234411cea19c7c284d86be8b",
       "sourceName": "@openzeppelin/contracts/access/IAccessControl.sol",
       "solcConfig": {
@@ -333,8 +298,8 @@
         "IAccessControl"
       ]
     },
-    "/Users/hoanguyen/sc-class/node_modules/@openzeppelin/contracts/utils/Strings.sol": {
-      "lastModificationDate": 1654726233562,
+    "D:\\learn\\sc-class\\node_modules\\@openzeppelin\\contracts\\utils\\Strings.sol": {
+      "lastModificationDate": 1654672373695,
       "contentHash": "9c54c6c065d9e590fdcdd72c451425b9",
       "sourceName": "@openzeppelin/contracts/utils/Strings.sol",
       "solcConfig": {
@@ -368,8 +333,8 @@
         "Strings"
       ]
     },
-    "/Users/hoanguyen/sc-class/node_modules/@openzeppelin/contracts/utils/introspection/ERC165.sol": {
-      "lastModificationDate": 1654726232527,
+    "D:\\learn\\sc-class\\node_modules\\@openzeppelin\\contracts\\utils\\introspection\\ERC165.sol": {
+      "lastModificationDate": 1654672373540,
       "contentHash": "0e7db055ce108f9da7bb6686a00287c0",
       "sourceName": "@openzeppelin/contracts/utils/introspection/ERC165.sol",
       "solcConfig": {
@@ -405,8 +370,8 @@
         "ERC165"
       ]
     },
-    "/Users/hoanguyen/sc-class/node_modules/@openzeppelin/contracts/utils/introspection/IERC165.sol": {
-      "lastModificationDate": 1654726233194,
+    "D:\\learn\\sc-class\\node_modules\\@openzeppelin\\contracts\\utils\\introspection\\IERC165.sol": {
+      "lastModificationDate": 1654672373628,
       "contentHash": "03e6768535ac4da0e9756f1d8a4a018a",
       "sourceName": "@openzeppelin/contracts/utils/introspection/IERC165.sol",
       "solcConfig": {
@@ -440,8 +405,8 @@
         "IERC165"
       ]
     },
-    "/Users/hoanguyen/sc-class/node_modules/@openzeppelin/contracts/token/ERC721/ERC721.sol": {
-      "lastModificationDate": 1654726232756,
+    "D:\\learn\\sc-class\\node_modules\\@openzeppelin\\contracts\\token\\ERC721\\ERC721.sol": {
+      "lastModificationDate": 1654672373568,
       "contentHash": "21b9f3bdb3e60f56ea81361c37420136",
       "sourceName": "@openzeppelin/contracts/token/ERC721/ERC721.sol",
       "solcConfig": {
@@ -483,8 +448,8 @@
         "ERC721"
       ]
     },
-    "/Users/hoanguyen/sc-class/node_modules/@openzeppelin/contracts/token/ERC721/IERC721.sol": {
-      "lastModificationDate": 1654726233305,
+    "D:\\learn\\sc-class\\node_modules\\@openzeppelin\\contracts\\token\\ERC721\\IERC721.sol": {
+      "lastModificationDate": 1654672373643,
       "contentHash": "cd8e72e5859bddd5fd26b2fb5c51c846",
       "sourceName": "@openzeppelin/contracts/token/ERC721/IERC721.sol",
       "solcConfig": {
@@ -520,8 +485,8 @@
         "IERC721"
       ]
     },
-    "/Users/hoanguyen/sc-class/node_modules/@openzeppelin/contracts/token/ERC721/IERC721Receiver.sol": {
-      "lastModificationDate": 1654726233328,
+    "D:\\learn\\sc-class\\node_modules\\@openzeppelin\\contracts\\token\\ERC721\\IERC721Receiver.sol": {
+      "lastModificationDate": 1654672373649,
       "contentHash": "c22d4395e33763de693fd440c6fd10e1",
       "sourceName": "@openzeppelin/contracts/token/ERC721/IERC721Receiver.sol",
       "solcConfig": {
@@ -555,8 +520,8 @@
         "IERC721Receiver"
       ]
     },
-    "/Users/hoanguyen/sc-class/node_modules/@openzeppelin/contracts/token/ERC721/extensions/IERC721Metadata.sol": {
-      "lastModificationDate": 1654726233321,
+    "D:\\learn\\sc-class\\node_modules\\@openzeppelin\\contracts\\token\\ERC721\\extensions\\IERC721Metadata.sol": {
+      "lastModificationDate": 1654672373647,
       "contentHash": "efbc0d15b80a74e34dbe8da0f3e879bb",
       "sourceName": "@openzeppelin/contracts/token/ERC721/extensions/IERC721Metadata.sol",
       "solcConfig": {
@@ -592,8 +557,8 @@
         "IERC721Metadata"
       ]
     },
-    "/Users/hoanguyen/sc-class/node_modules/@openzeppelin/contracts/utils/Address.sol": {
-      "lastModificationDate": 1654726230572,
+    "D:\\learn\\sc-class\\node_modules\\@openzeppelin\\contracts\\utils\\Address.sol": {
+      "lastModificationDate": 1654672373445,
       "contentHash": "ad714a6368ee7d43cded6bbe8af0b155",
       "sourceName": "@openzeppelin/contracts/utils/Address.sol",
       "solcConfig": {
@@ -627,8 +592,8 @@
         "Address"
       ]
     },
-    "/Users/hoanguyen/sc-class/node_modules/@openzeppelin/contracts/access/Ownable.sol": {
-      "lastModificationDate": 1654726233450,
+    "D:\\learn\\sc-class\\node_modules\\@openzeppelin\\contracts\\access\\Ownable.sol": {
+      "lastModificationDate": 1654672373674,
       "contentHash": "8398972af73b4e9e5ff3b31cad86234f",
       "sourceName": "@openzeppelin/contracts/access/Ownable.sol",
       "solcConfig": {
@@ -664,9 +629,9 @@
         "Ownable"
       ]
     },
-    "/Users/hoanguyen/sc-class/contracts/nft/Petty.sol": {
-      "lastModificationDate": 1655763835148,
-      "contentHash": "303d7ff2971431b3431479320f0b1171",
+    "D:\\learn\\sc-class\\contracts\\nft\\Petty.sol": {
+      "lastModificationDate": 1655910184627,
+      "contentHash": "feab9a3673ff63e79964d31c19ad1444",
       "sourceName": "contracts/nft/Petty.sol",
       "solcConfig": {
         "version": "0.8.4",
@@ -703,8 +668,8 @@
         "Petty"
       ]
     },
-    "/Users/hoanguyen/sc-class/node_modules/@openzeppelin/contracts/utils/Counters.sol": {
-      "lastModificationDate": 1654726231437,
+    "D:\\learn\\sc-class\\node_modules\\@openzeppelin\\contracts\\utils\\Counters.sol": {
+      "lastModificationDate": 1654672373457,
       "contentHash": "74654e3ae5d7f39555055dfe244dab7a",
       "sourceName": "@openzeppelin/contracts/utils/Counters.sol",
       "solcConfig": {
@@ -736,6 +701,41 @@
       ],
       "artifacts": [
         "Counters"
+      ]
+    },
+    "D:\\learn\\sc-class\\contracts\\HelloWorld.sol": {
+      "lastModificationDate": 1654737234676,
+      "contentHash": "3d00982c487b864f3c7ed0a75f02229c",
+      "sourceName": "contracts/HelloWorld.sol",
+      "solcConfig": {
+        "version": "0.8.4",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.4"
+      ],
+      "artifacts": [
+        "HelloWorld"
       ]
     }
   }
