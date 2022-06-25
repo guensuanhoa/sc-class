@@ -8,6 +8,7 @@ import "@openzeppelin/contracts/utils/Counters.sol";
 
 contract Staking is Ownable {
     using Counters for Counters.Counter;
+    // Save token gold for paying profit
     StakingReserve public immutable reserve;
     IERC20 public immutable gold;
     // Emit when user puts more money into his stake pakage
@@ -17,6 +18,7 @@ contract Staking is Ownable {
         uint256 amount,
         uint256 totalProfit
     );
+    // Emit when a staking pakage done
     event StakeReleased(
         address account,
         uint256 packageId,
@@ -92,8 +94,11 @@ contract Staking is Ownable {
         require(packageId_ > 0, "Staking: packageId_ must be lagger than 0");
         // Verify packageId_
         StakePackage storage stakePakage_ = stakePackages[packageId_];
-        require(stakePakage_.rate > 0, "Staking: packageId_ is not exits");
-        require(stakePakage_.isOffline == false, "Staking: packageId_ had been removed");
+        require(stakePakage_.rate > 0, "Staking: Stake pakage is not exits");
+        require(
+            stakePakage_.isOffline == false,
+            "Staking: Stake pakage had been removed"
+        );
         // Update stake pakage
         stakePakage_.isOffline = true;
     }
@@ -102,7 +107,7 @@ contract Staking is Ownable {
      * @dev User stake amount of gold to stakes[address][packageId]
      * @notice if is there any amount of gold left in the stake package,
      * calculate the profit and add it to total Profit,
-     * otherwise just add completely new stake. 
+     * otherwise just add completely new stake.
      */
     function stake(uint256 amount_, uint256 packageId_) external {
         // Verify input param
@@ -111,37 +116,62 @@ contract Staking is Ownable {
         // Verify packageId_
         StakePackage storage stakePakage_ = stakePackages[packageId_];
         require(stakePakage_.rate > 0, "Staking: packageId_ is not exits");
-        require(stakePakage_.isOffline == false, "Staking: packageId_ had been removed");
-        require(amount_ > stakePakage_.minStaking, "Staking: amount_ must be lagger than minStaking");
+        require(
+            stakePakage_.isOffline == false,
+            "Staking: packageId_ had been removed"
+        );
+        require(
+            amount_ > stakePakage_.minStaking,
+            "Staking: amount_ must be lagger than minStaking"
+        );
 
         // Transfer gold token from sender to reserve contract
         gold.transferFrom(_msgSender(), address(reserve), amount_);
-        // Init new stake for sender address 
+        // Init new stake for sender address
         // OR update current user's stake
         StakingInfo storage _stakingInfo = stakes[_msgSender()][packageId_];
         // User had stake before
         if (_stakingInfo.amount > 0) {
             // Update current stake
-            
+            uint256 _totalProfit = calculateProfit(packageId_);
+            _stakingInfo.amount += amount_;
+            _stakingInfo.timePoint = block.timestamp;
+            _stakingInfo.totalProfit = _totalProfit;
         } else {
             // Init new stake
+            _stakingInfo.amount = amount_;
+            _stakingInfo.startTime = block.timestamp;
+            _stakingInfo.timePoint = block.timestamp;
+            _stakingInfo.totalProfit = 0;
         }
+
+        emit StakeUpdate(
+            _msgSender(),
+            packageId_,
+            _stakingInfo.amount,
+            _stakingInfo.totalProfit
+        );
     }
+
     /**
      * @dev Take out all the stake amount and profit of account's stake from reserve contract
      */
     function unStake(uint256 packageId_) external {
         // validate available package and approved amount
     }
+
     /**
      * @dev calculate current profit of an package of user known packageId
      */
-
-    function calculateProfit(uint256 packageId_)
-        public
-        view
-        returns (uint256)
-    {}
+    function calculateProfit(uint256 packageId_) public view returns (uint256) {
+        StakingInfo memory _stakingInfo = stakes[_msgSender()][packageId_];
+        uint256 _stakeTime = block.timestamp - _stakingInfo.timePoint;
+        uint256 _profit = (_stakeTime *
+            _stakingInfo.amount *
+            stakePackages[packageId_].rate) /
+            10**stakePackages[packageId_].decimal;
+        return _stakingInfo.totalProfit + _profit;
+    }
 
     function getAprOfPackage(uint256 packageId_)
         public
