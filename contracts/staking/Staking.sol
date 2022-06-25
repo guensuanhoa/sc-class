@@ -157,7 +157,29 @@ contract Staking is Ownable {
      * @dev Take out all the stake amount and profit of account's stake from reserve contract
      */
     function unStake(uint256 packageId_) external {
-        // validate available package and approved amount
+        // Verify input param
+        require(packageId_ > 0, "Staking: packageId_ must be lagger than 0");
+        // Verify stakingInfo
+        StakingInfo storage stakingInfo_ = stakes[_msgSender()][packageId_];
+        require(stakingInfo_.amount > 0, "Staking: Staking not found");
+        require(
+            block.timestamp - stakingInfo_.timePoint >=
+                stakePackages[packageId_].lockTime,
+            "Staking: Not reach lock time"
+        );
+
+        // Get total amount = profit + staking amount to pay for user
+        uint256 _profit = calculateProfit(packageId_);
+        uint256 _stakeAmount = stakingInfo_.amount;
+        // Clear stakingInfo
+        stakingInfo_.amount = 0;
+        stakingInfo_.startTime = 0;
+        stakingInfo_.timePoint = 0;
+        stakingInfo_.totalProfit = 0;
+
+        // Pay total amount for user
+        reserve.distributeGold(_msgSender(), _profit + _stakeAmount);
+        emit StakeReleased(msg.sender, packageId_, _stakeAmount, _profit);
     }
 
     /**
@@ -173,9 +195,7 @@ contract Staking is Ownable {
         return _stakingInfo.totalProfit + _profit;
     }
 
-    function getAprOfPackage(uint256 packageId_)
-        public
-        view
-        returns (uint256)
-    {}
+    function getAprOfPackage(uint256 packageId_) public view returns (uint256) {
+        return stakePackages[packageId_].rate * 365 * 86400;
+    }
 }
