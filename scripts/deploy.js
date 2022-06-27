@@ -22,6 +22,10 @@ async function main() {
   console.log("Gold deployed to:", gold.address);
   console.log("Reserve deployed to:", reserve.address);
   console.log("Staking deployed to:", staking.address);
+
+  // Gold deployed to: 0xc2ec2AEC36f1B6Ea48f0e69892789C7B38dCB0cC
+  // Reserve deployed to: 0xc015C01725B2b40d0B05700B6fe84c1Ca268F048
+  // Staking deployed to: 0x9d03f40E0eBc02cc0319306aBA67b59524Fd8509
 }
 
 // We recommend this pattern to be able to use async/await everywhere
