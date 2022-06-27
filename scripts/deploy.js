@@ -11,7 +11,8 @@ async function main() {
   await gold.deployed()
 
   const Reserve = await hre.ethers.getContractFactory("StakingReserve");
-  reserve = await Reserve.deploy()
+  const stakeAddress = "0x6810c8f75CEc539E1FA20A098984702B8dA581b5"
+  reserve = await Reserve.deploy(gold.address, stakeAddress)
   await reserve.deployed()
 
   const Staking = await hre.ethers.getContractFactory("Staking");
@@ -20,7 +21,7 @@ async function main() {
 
   console.log("Gold deployed to:", gold.address);
   console.log("Reserve deployed to:", reserve.address);
-  console.log("Staking deployed to:", Staking.address);
+  console.log("Staking deployed to:", staking.address);
 }
 
 // We recommend this pattern to be able to use async/await everywhere
